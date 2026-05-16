@@ -17,8 +17,12 @@ public class InventorySeedConfig {
             }
 
             repository.save(buildItem("SKU-1001", "Teclado Mecanico RGB", "WH-SCL-01", 120, 20));
-            repository.save(buildItem("SKU-2001", "Mouse Inalambrico", "WH-SCL-01", 200, 30));
-            repository.save(buildItem("SKU-3001", "Monitor 24 Pulgadas", "WH-VAP-02", 45, 10));
+            repository.save(buildItem("SKU-1002", "Mouse Inalambrico", "WH-SCL-02", 200, 30));
+            repository.save(buildItem("SKU-2001", "Monitor 24 Pulgadas", "WH-VAP-02", 45, 10));
+            repository.save(buildItem("SKU-3001", "Audifonos Gamer", "WH-CON-01", 80, 15));
+            repository.save(buildItem("SKU-4001", "Silla Gamer Ergonómica", "WH-VAL-01", 55, 10));
+            repository.save(buildItem("SKU-5001", "Elden Ring", "WH-PMQ-01", 30, 15));
+            repository.save(buildItem("SKU-5002", "Counter Strike 2", "WH-PMQ-01", 40, 15));
         };
     }
 
