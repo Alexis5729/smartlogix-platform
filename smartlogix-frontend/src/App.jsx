@@ -5,16 +5,37 @@ import DashboardPage from "./pages/DashboardPage";
 import InventoryPage from "./pages/InventoryPage";
 import OrdersPage from "./pages/OrdersPage";
 import ShipmentPage from "./pages/ShipmentPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/shipments" element={<ShipmentPage />} />
+        <Route path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }/>
+        <Route path="/inventory"
+          element={
+              <ProtectedRoute>
+                <InventoryPage />
+              </ProtectedRoute>
+          }/>
+        <Route path="/orders"
+          element={
+              <ProtectedRoute>
+                <OrdersPage />
+              </ProtectedRoute>
+          } />
+        <Route path="/shipments"
+          element={
+              <ProtectedRoute>
+                <ShipmentPage />
+              </ProtectedRoute>
+          } />
       </Routes>
     </BrowserRouter>
   );

@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaBoxes, FaClipboardList, FaTruck } from "react-icons/fa";
 
 function DashboardPage() {
 
     const role = localStorage.getItem("role");
     const username = localStorage.getItem("username");
+    const navigate = useNavigate();
+
+    function logout() {
+        localStorage.clear();
+        navigate("/");
+    }
 
     let roleLabel = "Usuario";
 
@@ -28,8 +35,16 @@ function DashboardPage() {
             </p>
           </div>
 
-          <div className="bg-blue-50 px-5 py-3 rounded-full font-semibold text-blue-600 shadow-md">
-            <span>{roleLabel}</span>
+          <div className="flex items-center gap-4">
+
+              <div className="bg-blue-50 px-5 py-3 rounded-full font-semibold text-blue-600 shadow-md">
+                  <span>{roleLabel}</span>
+              </div>
+
+              <button onClick={logout} className=" px-5 py-3 rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold shadow-md transition-all">
+                  Cerrar sesión
+              </button>
+
           </div>
 
         </header>
