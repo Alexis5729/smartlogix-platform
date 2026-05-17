@@ -20,19 +20,19 @@ function App() {
           }/>
         <Route path="/inventory"
           element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ROLE_ADMIN", "ROLE_WAREHOUSE_MANAGER"]}>
                 <InventoryPage />
               </ProtectedRoute>
           }/>
         <Route path="/orders"
           element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ROLE_ADMIN", "ROLE_USER"]}>
                 <OrdersPage />
               </ProtectedRoute>
           } />
         <Route path="/shipments"
           element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={["ROLE_ADMIN", "ROLE_WAREHOUSE_MANAGER"]}>
                 <ShipmentPage />
               </ProtectedRoute>
           } />
