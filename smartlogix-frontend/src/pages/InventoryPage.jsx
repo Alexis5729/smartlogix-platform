@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getInventoryItems } from "../api/inventoryApi";
+import ServiceNavbar from "../components/ServiceNavbar";
 
 function InventoryPage() {
   const [items, setItems] = useState([]);
@@ -25,15 +26,22 @@ function InventoryPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-8">
-      <Link to="/dashboard" className="inline-flex items-center text-blue-600 font-semibold mb-6 hover:text-blue-800 transition">← Volver al dashboard</Link>
+        <ServiceNavbar title="Inventario" />
 
-      <div className="mb-8">
-        <h1 className="text-4xl font-black text-slate-900 mb-2">Inventario</h1>
-        <p className="text-slate-500 text-lg">Listado de productos disponibles en SmartLogix.</p>
-      </div>
-
-      {loading && <p>Cargando inventario...</p>}
-      {error && <p className="text-red-600 font-semibold">{error}</p>}
+      {loading && (
+        <div className="bg-white/80 border border-slate-200 rounded-3xl shadow-lg p-8">
+            <p className="text-slate-500 font-medium animate-pulse">
+                Cargando inventario...
+            </p>
+        </div>
+      )}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-4 shadow-sm">
+            <p className="text-red-600 font-semibold">
+                {error}
+            </p>
+        </div>
+      )}
 
       {!loading && !error && (
         <div className="bg-white/80 border border-slate-200 rounded-3xl shadow-lg p-8">

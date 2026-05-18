@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { createOrder, getOrders, deleteOrder } from "../api/orderApi";
+import ServiceNavbar from "../components/ServiceNavbar";
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -69,12 +70,7 @@ function OrdersPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-8">
-      <Link to="/dashboard"className="inline-flex items-center text-blue-600 font-semibold mb-6 hover:text-blue-800 transition">← Volver al dashboard</Link>
-
-      <div className="mb-8">
-        <h1 className="text-4xl font-black text-slate-900 mb-2">Pedidos</h1>
-        <p className="text-slate-500 text-lg">Gestión de pedidos conectada al order-service.</p>
-      </div>
+        <ServiceNavbar title="Pedidos" />
 
       <div className="bg-white/80 border border-slate-200 rounded-3xl shadow-lg p-8 mb-8">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">
