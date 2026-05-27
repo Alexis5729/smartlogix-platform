@@ -20,7 +20,7 @@ function ServiceNavbar({ title }) {
     }
 
     return (
-        <header className="flex justify-between items-center mb-6 px-5 py-3 bg-white/80 border border-slate-200 rounded-2xl shadow-lg">
+        <header className="flex justify-between mb-6 px-5 py-3 bg-white/80 rounded-2xl shadow-lg">
 
             <div className="flex flex-col gap-1">
 

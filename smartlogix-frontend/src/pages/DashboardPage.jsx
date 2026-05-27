@@ -8,7 +8,7 @@ function DashboardPage() {
     const role = localStorage.getItem("role");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-100 via-blue-100 to-cyan-100 p-6">
         <div className="max-w-[1700px] mx-auto">
     <Navbar />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-6">

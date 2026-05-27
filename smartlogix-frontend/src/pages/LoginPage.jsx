@@ -57,21 +57,7 @@ function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Ingrese su usuario"
-              className="
-                w-full
-                px-4
-                py-3
-                rounded-2xl
-                border
-                border-slate-300
-                bg-white
-                outline-none
-                focus:ring-4
-                focus:ring-blue-200
-                focus:border-blue-500
-                transition
-              "
-            />
+              className="w-full px-4 py-3 rounded-2xl border border-slate-300 outline-none focus:ring-4 focus:ring-blue-200 focus:border-blue-500 transition"/>
           </div>
 
           <div>
@@ -84,39 +70,12 @@ function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Ingrese su contraseña"
-              className="
-                w-full
-                px-4
-                py-3
-                rounded-2xl
-                border
-                border-slate-300
-                bg-white
-                outline-none
-                focus:ring-4
-                focus:ring-blue-200
-                focus:border-blue-500
-                transition
-              "
-            />
+              className="w-full px-4 py-3 rounded-2xl border border-slate-300 outline-none focus:ring-4 focus:ring-blue-200 focus:border-blue-500 transition"/>
           </div>
 
           <button
             type="submit"
-            className="
-              w-full
-              bg-blue-600
-              hover:bg-blue-700
-              text-white
-              font-bold
-              py-3
-              rounded-2xl
-              shadow-lg
-              hover:shadow-xl
-              transition
-              duration-300
-            "
-          >
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-2xl transition duration-300">
             Iniciar sesión
           </button>
 

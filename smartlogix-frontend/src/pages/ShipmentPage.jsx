@@ -59,7 +59,7 @@ function ShipmentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-8">
+     <div className="min-h-screen bg-gradient-to-br from-fuchsia-100 via-indigo-100 to-emerald-100 p-6">
       <ServiceNavbar title="Envíos" />
       <div className="bg-white/80 border border-slate-200 rounded-3xl shadow-lg p-8 mb-8">
         <h2 className="text-2xl font-bold text-slate-900 mb-6">

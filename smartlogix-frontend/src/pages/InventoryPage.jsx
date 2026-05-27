@@ -25,7 +25,7 @@ function InventoryPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-8">
+     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-sky-100 to-pink-100 p-6">
         <ServiceNavbar title="Inventario" />
 
       {loading && (

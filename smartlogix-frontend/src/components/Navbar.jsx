@@ -21,10 +21,10 @@ function Navbar() {
     }
 
     return (
-        <header className="flex justify-between items-center mb-8 px-6 py-5 bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl shadow-lg">
+        <header className="flex justify-between mb-8 px-6 py-5 bg-white/80 rounded-3xl shadow-lg">
 
             <div>
-                <h1 className="text-3xl font-black tracking-tight text-slate-900">
+                <h1 className="text-3xl font-black">
                     Dashboard SmartLogix
                 </h1>
 

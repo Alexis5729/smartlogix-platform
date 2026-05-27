@@ -69,7 +69,7 @@ function OrdersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-50 p-8">
+     <div className="min-h-screen bg-gradient-to-br from-rose-100 via-blue-100 to-stone-100 p-6">
         <ServiceNavbar title="Pedidos" />
 
       <div className="bg-white/80 border border-slate-200 rounded-3xl shadow-lg p-8 mb-8">
