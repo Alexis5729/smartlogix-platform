@@ -1,10 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { getRoleLabel } from "../utils/roleUtils";
+import logo from "../assets/logo-smartlogix.png";
 
-function Navbar() {
-
-    const role = localStorage.getItem("role");
-    const username = localStorage.getItem("username");
-
+function Navbar({
+    title = "SmartLogix",
+    subtitle = "Inteligencia • Logística • Eficiencia",
+    showBack = false,
+    backTo = "/dashboard",
+    variant = "dashboard",
+}) {
+    const { role, username } = useAuth();
+    const roleLabel = getRoleLabel(role);
     const navigate = useNavigate();
 
     function logout() {
@@ -12,42 +19,76 @@ function Navbar() {
         navigate("/");
     }
 
-    let roleLabel = "Usuario";
-
-    if (role === "ROLE_ADMIN") {
-        roleLabel = "Administrador";
-    } else if (role === "ROLE_WAREHOUSE_MANAGER") {
-        roleLabel = "Bodeguero";
-    }
+    const isService = variant === "service";
 
     return (
-        <header className="flex justify-between mb-8 px-6 py-5 bg-white/80 rounded-3xl shadow-lg">
+        <header
+            className={`flex justify-between items-center bg-white/80 shadow-lg ${
+                isService
+                    ? "mb-6 px-5 py-3 rounded-2xl"
+                    : "mb-8 px-6 py-3 rounded-3xl"
+            }`}
+        >
+            <div className="flex items-center gap-6">
+                    <img
+                        src={logo}
+                        alt="SmartLogix"
+                        className={isService
+                            ? "w-20 h-20 object-contain"
+                            : "w-30 h-30 object-contain"}
+                    />
 
-            <div>
-                <h1 className="text-3xl font-black">
-                    Dashboard SmartLogix
-                </h1>
 
-                <p className="text-slate-500 text-lg mt-2">
-                    Bienvenido, {username}
-                </p>
+                <div className="flex flex-col gap-1">
+                    {showBack && (
+                        <Link
+                            to={backTo}
+                            className="text-blue-600 font-semibold hover:text-blue-800 transition text-sm"
+                        >
+                            ← Volver al Dashboard
+                        </Link>
+                    )}
+
+                    <h1
+                        className={`font-black text-slate-900 ${
+                            isService ? "text-2xl" : "text-3xl"
+                        }`}
+                    >
+                        {title}
+                    </h1>
+
+                    {!isService && (
+                        <>
+                            <p className="text-slate-500">
+                                {subtitle}
+                            </p>
+
+                            <p className="text-slate-400 text-sm">
+                                Bienvenido, {username}
+                            </p>
+                        </>
+                    )}
+                </div>
             </div>
 
-            <div className="flex items-center gap-4">
-
-                <div className="bg-blue-50 px-5 py-3 rounded-full font-semibold text-blue-600 shadow-md">
+            <div className="flex items-center gap-3">
+                <div
+                    className={`bg-blue-50 rounded-full font-semibold text-blue-600 shadow-sm ${
+                        isService ? "px-4 py-2" : "px-5 py-3"
+                    }`}
+                >
                     <span>{roleLabel}</span>
                 </div>
 
                 <button
                     onClick={logout}
-                    className="px-5 py-3 rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold shadow-md transition-all"
+                    className={`rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold shadow-sm transition-all ${
+                        isService ? "px-4 py-2" : "px-5 py-3"
+                    }`}
                 >
                     Cerrar sesión
                 </button>
-
             </div>
-
         </header>
     );
 }
