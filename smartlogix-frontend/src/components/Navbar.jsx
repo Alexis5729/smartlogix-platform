@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { getRoleLabel } from "../utils/roleUtils";
 import logo from "../assets/logo-smartlogix.png";
+import Button from "../components/Button";
 
 function Navbar({
     title = "SmartLogix",
@@ -27,24 +28,21 @@ function Navbar({
                 isService
                     ? "mb-6 px-5 py-3 rounded-2xl"
                     : "mb-8 px-6 py-3 rounded-3xl"
-            }`}
-        >
+            }`}>
+
             <div className="flex items-center gap-6">
                     <img
                         src={logo}
                         alt="SmartLogix"
                         className={isService
                             ? "w-20 h-20 object-contain"
-                            : "w-30 h-30 object-contain"}
-                    />
+                            : "w-30 h-30 object-contain"}/>
 
 
                 <div className="flex flex-col gap-1">
                     {showBack && (
-                        <Link
-                            to={backTo}
-                            className="text-blue-600 font-semibold hover:text-blue-800 transition text-sm"
-                        >
+                        <Link to={backTo}
+                            className="text-blue-600 font-semibold hover:text-blue-800 transition text-sm">
                             ← Volver al Dashboard
                         </Link>
                     )}
@@ -52,8 +50,7 @@ function Navbar({
                     <h1
                         className={`font-black text-slate-900 ${
                             isService ? "text-2xl" : "text-3xl"
-                        }`}
-                    >
+                        }`}>
                         {title}
                     </h1>
 
@@ -75,19 +72,13 @@ function Navbar({
                 <div
                     className={`bg-blue-50 rounded-full font-semibold text-blue-600 shadow-sm ${
                         isService ? "px-4 py-2" : "px-5 py-3"
-                    }`}
-                >
+                    }`}>
                     <span>{roleLabel}</span>
                 </div>
 
-                <button
-                    onClick={logout}
-                    className={`rounded-full bg-red-500 hover:bg-red-600 text-white font-semibold shadow-sm transition-all ${
-                        isService ? "px-4 py-2" : "px-5 py-3"
-                    }`}
-                >
+                <Button variant="danger" size={isService ? "sm" : "pill"} onClick={logout}>
                     Cerrar sesión
-                </button>
+                </Button>
             </div>
         </header>
     );

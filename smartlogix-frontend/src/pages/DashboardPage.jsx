@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { FaBoxes, FaClipboardList, FaTruck } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 
-
 function DashboardPage() {
 
     const role = localStorage.getItem("role");

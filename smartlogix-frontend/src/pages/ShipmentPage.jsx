@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { loadShipmentService, saveShipment, removeShipment } from "../services/shipmentService";
 import Navbar from "../components/Navbar";
 import PageContainer from "../layout/PageContainer";
+import Button from "../components/Button";
 
 function ShipmentPage() {
   const [shipments, setShipments] = useState([]);
@@ -89,8 +90,10 @@ function ShipmentPage() {
                           placeholder="Total unidades"
                         />
 
-                        <div className="mt-1">
-                          <button className="px-5 py-3 rounded-xl bg-blue-600 text-white font-bold shadow-md hover:bg-blue-700 hover:-translate-y-1 transition">Crear envío</button>
+                        <div className="mt-2">
+                            <Button type="submit" variant="primary" size="md">
+                                Crear pedido
+                            </Button>
                         </div>
                       </form>
                     </div>
@@ -128,10 +131,10 @@ function ShipmentPage() {
                                       {shipment.status}</span>
                                 </td>
                                 <td>
-                                  <button className="px-4 py-2 rounded-lg bg-red-500 text-white font-bold hover:bg-red-600 shadow-md hover:-translate-y-0.5 hover:shadow-lg transition "
-                                  onClick={() => handleDelete(shipment.trackingCode)}>
-                                    Eliminar
-                                  </button>
+                                  <Button variant="danger" size="del"
+                                     onClick={() => handleDelete(shipment.trackingCode)}>
+                                     Eliminar
+                                  </Button>
                                 </td>
                               </tr>
                             ))}

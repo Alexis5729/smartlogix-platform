@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { loadOrderService, saveOrder, removeOrder } from "../services/orderService";
 import Navbar from "../components/Navbar";
 import PageContainer from "../layout/PageContainer";
+import Button from "../components/Button";
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -107,7 +108,9 @@ function OrdersPage() {
                         placeholder="Precio unitario" />
 
                         <div className="mt-2">
-                          <button className="px-6 py-3 rounded-xl bg-blue-600 text-white font-bold shadow-md hover:bg-blue-700 hover:-translate-y-1 transition">Crear pedido</button>
+                            <Button type="submit" variant="primary" size="md">
+                                Crear pedido
+                            </Button>
                         </div>
                       </form>
                     </div>
@@ -141,10 +144,10 @@ function OrdersPage() {
                                 <td className="p-4 border-b border-slate-200 text-slate-700">{order.trackingCode || "Sin tracking"}</td>
                                 <td className="p-4 border-b border-slate-200 text-slate-700">{order.createdAt}</td>
                                 <td>
-                                  <button className="px-4 py-2 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition"
-                                    onClick={() => handleDelete(order.orderNumber)}>
-                                    Eliminar
-                                  </button>
+                                  <Button variant="danger" size="del"
+                                      onClick={() => handleDelete(order.orderNumber)}>
+                                      Eliminar
+                                  </Button>
                                 </td>
                               </tr>
                             ))}
